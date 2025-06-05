@@ -201,6 +201,9 @@ __device__ constexpr int32_t biome_max_calls(Version version, Biome biome) {
         case Biome::Taiga: {
             return biome_max_tree_count(version, biome) * 8;
         } break;
+        case Biome::WoodedBadlandsPlateau: {
+            return biome_max_tree_count(version, biome) * 6;
+        } break;
     }
 }
 
