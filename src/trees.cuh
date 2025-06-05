@@ -37,6 +37,7 @@ enum struct Biome {
     Forest,
     BirchForest,
     Taiga,
+    WoodedBadlandsPlateau,
 };
 
 enum struct TreeType {
@@ -97,6 +98,10 @@ __device__ constexpr bool biome_has_tree_type(Version version, Biome biome, Tree
                 tree_type == TreeType::Pine ||
                 tree_type == TreeType::Spruce;
         } break;
+        case Biome::WoodedBadlandsPlateau: {
+            return
+                tree_type == TreeType::Oak;
+        } break;        
     }
 }
 
@@ -128,6 +133,9 @@ __device__ TreeType biome_get_tree_type(Version version, Biome biome, Random &ra
             if (random.nextInt(3) == 0) return TreeType::Pine;
             return TreeType::Spruce;
         } break;
+        case Biome::WoodedBadlandsPlateau: {
+            return TreeType::Oak;
+        } break;        
     }
 }
 
@@ -142,6 +150,9 @@ __device__ constexpr int32_t biome_min_tree_count(Version version, Biome biome) 
         case Biome::Taiga: {
             return 10;
         };
+        case Biome::WoodedBadlandsPlateau: {
+            return 10;
+        };        
     }
 }
 
