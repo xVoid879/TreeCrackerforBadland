@@ -151,7 +151,7 @@ __device__ constexpr int32_t biome_min_tree_count(Version version, Biome biome) 
             return 10;
         };
         case Biome::WoodedBadlandsPlateau: {
-            return 10;
+            return 6;
         };        
     }
 }
